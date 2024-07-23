@@ -1,11 +1,11 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "./src/screens/Home";
-import Bookings from "./src/screens/Bookings";
-import AtSallon from "./src/screens/AtSallon";
-import AtHome from "./src/screens/AtHome";
 import { Octicons } from "@expo/vector-icons";
 import { View, Text } from "react-native";
+import Home from "../screens/Home";
+import Bookings from "../screens/Bookings";
+import AtHome from "../screens/AtHome";
+import Profile from "../screens/Profile";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,15 +33,15 @@ const BottomTabs = () => (
       }}
     />
     <Tab.Screen
-      name="AtSallon"
-      component={AtSallon}
+      name="AtHome"
+      component={AtHome}
       options={{
         tabBarIcon: () => <CustomTabBarIcon name="star" />,
       }}
     />
     <Tab.Screen
       name="Profile"
-      component={AtHome}
+      component={Profile}
       options={{
         tabBarIcon: () => <CustomTabBarIcon name="profile" />,
       }}
