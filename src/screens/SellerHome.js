@@ -1,4 +1,11 @@
-import { ScrollView, StyleSheet, Text, View, Image } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  SafeAreaView,
+} from "react-native";
 import React, { useState } from "react";
 import { Octicons } from "@expo/vector-icons";
 import userLogo from "../../assets/userLogo.jpg";
@@ -11,28 +18,30 @@ const SellerHome = () => {
   };
 
   return (
-    <ScrollView>
-      <View style={styles.topBarContiner}>
-        <Image source={userLogo} style={styles.topBarImg} />
-        <View style={styles.topBarDetails}>
-          <Text style={styles.topBarDetailUserName}>User Kumar Singh</Text>
-          <Text style={styles.topBarDetailUserAdd}>
-            User Address point to get Service
-          </Text>
+    <SafeAreaView>
+      <ScrollView>
+        <View style={styles.topBarContiner}>
+          <Image source={userLogo} style={styles.topBarImg} />
+          <View style={styles.topBarDetails}>
+            <Text style={styles.topBarDetailUserName}>User Kumar Singh</Text>
+            <Text style={styles.topBarDetailUserAdd}>
+              User Address point to get Service
+            </Text>
+          </View>
+          <View style={styles.notify}>
+            <Octicons name="bell" size={27} color="black" />
+          </View>
         </View>
-        <View style={styles.notify}>
-          <Octicons name="bell" size={27} color="black" />
+        {/* Search bar */}
+        <View style={styles.searchBarContainer}>
+          <CustomSearchBar
+            placeholder="Type Here..."
+            value={search}
+            onChangeText={updateSearch}
+          />
         </View>
-      </View>
-      {/* Search bar */}
-      <View style={styles.searchBarContainer}>
-        <CustomSearchBar
-          placeholder="Type Here..."
-          value={search}
-          onChangeText={updateSearch}
-        />
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
